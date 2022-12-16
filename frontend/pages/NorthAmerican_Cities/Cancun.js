@@ -31,11 +31,7 @@ useEffect(() => {
     setStatus2("pending");
 
     const axiosPosts = async () => {
-        axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-        axios.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS';
-        axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
-        axios.defaults.headers.common['Access-Control-Expose-Headers'] = 'Content-Length, Content-Range';
-
+        
         try{
 
         const response = await axios("https://www.travelpayouts.com/whereami?ip=")
