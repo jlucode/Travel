@@ -41,7 +41,13 @@ useEffect(() => {
 
          /* Conditional IF Statement included for. Flight origin and destination logically be the same. If so, API is not fetched. */
          if(response.data.iata !== destination){
-        const response2 = await axios(`https://api.travelpayouts.com/v2/prices/latest?currency=usd&period_type=year&page=1&duration=hour&limit=5&origin=${response.data.iata}&destination=${destination}&show_to_affiliates=true&sorting=price&token=1fb2829993009e6a7db3163d4d00a1ff`)
+        const response2 = await axios.get(`https://api.travelpayouts.com/v2/prices/latest?currency=usd&period_type=year&page=1&duration=hour&limit=5&origin=${response.data.iata}&destination=${destination}&show_to_affiliates=true&sorting=price&token=1fb2829993009e6a7db3163d4d00a1ff`, {headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'DNT,User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Range',
+            'Access-Control-Expose-Headers': 'Content-Length, Content-Range',
+
+        },})
         setFlightData(response2.data)
         setStatus2("resolved")
         }
