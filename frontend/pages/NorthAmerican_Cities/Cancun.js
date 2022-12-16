@@ -12,10 +12,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 export default function Cancun() {
 
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-axios.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS';
-axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
-axios.defaults.headers.common['Access-Control-Expose-Headers'] = 'Content-Length, Content-Range';
+
 
 const [status, setStatus] = useState("idle");
 const [ipaddressdata , setIpaddressData] = useState([{
@@ -34,6 +31,10 @@ useEffect(() => {
     setStatus2("pending");
 
     const axiosPosts = async () => {
+        axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+        axios.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS';
+        axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+        axios.defaults.headers.common['Access-Control-Expose-Headers'] = 'Content-Length, Content-Range';
 
         try{
 
