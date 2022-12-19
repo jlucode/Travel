@@ -34,7 +34,7 @@ useEffect(() => {
         
         try{
 
-        const response = await axios.options("https://www.travelpayouts.com/whereami?ip=")
+        const response = await axios.get("https://www.travelpayouts.com/whereami?ip=")
         setIpaddressData(response.data)
         setStatus("resolved")
         
@@ -43,7 +43,7 @@ useEffect(() => {
 
          /* Conditional IF Statement included for. Flight origin and destination logically be the same. If so, API is not fetched. */
          if(response.data.iata !== destination){
-        const response2 = await axios.options(`https://api.travelpayouts.com/v2/prices/latest?currency=usd&period_type=year&page=1&duration=hour&limit=5&origin=${response.data.iata}&destination=${destination}&show_to_affiliates=true&sorting=price&token=1fb2829993009e6a7db3163d4d00a1ff`)
+        const response2 = await axios.get(`https://api.travelpayouts.com/v2/prices/latest?currency=usd&period_type=year&page=1&duration=hour&limit=5&origin=${response.data.iata}&destination=${destination}&show_to_affiliates=true&sorting=price&token=1fb2829993009e6a7db3163d4d00a1ff`)
         setFlightData(response2.data)
         setStatus2("resolved")
         }
@@ -74,7 +74,7 @@ const [yelpData, setYelpData] = useState([{}])
 const [location, setLoction] = useState("")
 
 useEffect(() => {
-axios.options(`https://api.yelp.com/v3/businesses/search`, {
+axios.get(`https://api.yelp.com/v3/businesses/search`, {
     headers: {
         Authorization: `Bearer ${YELPapiKey}`
     },
