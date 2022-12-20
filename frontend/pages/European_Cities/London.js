@@ -41,7 +41,7 @@ useEffect(() => {
 
          /* Conditional IF Statement included for. Flight origin and destination logically be the same. If so, API is not fetched. */
          if(response.data.iata !== destination){
-        const response2 = await axios(`${'https://cors-anywhere.herokuapp.com/'}https://api.travelpayouts.com/v2/prices/latest?currency=usd&period_type=year&page=1&duration=hour&limit=5&origin=${response.data.iata}&destination=${destination}&show_to_affiliates=true&sorting=price&token=1fb2829993009e6a7db3163d4d00a1ff`)
+        const response2 = await axios(`https://api.travelpayouts.com/v2/prices/latest?currency=usd&period_type=year&page=1&duration=hour&limit=5&origin=${response.data.iata}&destination=${destination}&show_to_affiliates=true&sorting=price&token=1fb2829993009e6a7db3163d4d00a1ff`)
         setFlightData(response2.data)
         setStatus2("resolved")
         }
@@ -72,7 +72,7 @@ const [yelpData, setYelpData] = useState([{}])
 const [location, setLoction] = useState("")
 
 useEffect(() => {
-axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search`, {
+axios.get(`https://api.yelp.com/v3/businesses/search`, {
     headers: {
         Authorization: `Bearer ${YELPapiKey}`
     },
@@ -147,7 +147,7 @@ function timeConvert(n) {
         setStatus3("pending"); 
         const axiosPosts = async () => {
             try{
-            const response3 = await axios(`${'https://cors-anywhere.herokuapp.com/'}https://engine.hotellook.com/api/v2/cache.json?location=London&checkIn=${dateformatted}&checkOut=${dateformatted2}&currency=usd&limit=20&sortBy=priceFrom&token=1fb2829993009e6a7db3163d4d00a1ff`)
+            const response3 = await axios(`https://engine.hotellook.com/api/v2/cache.json?location=London&checkIn=${dateformatted}&checkOut=${dateformatted2}&currency=usd&limit=20&sortBy=priceFrom&token=1fb2829993009e6a7db3163d4d00a1ff`)
             setHotelData(response3.data)
             setStatus3("resolved")
         }catch(error){
