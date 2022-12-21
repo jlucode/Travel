@@ -78,7 +78,6 @@ axios.get(`https://api.yelp.com/v3/businesses/search`, {
     headers: {
         accept: 'application/json',
         Authorization: `Bearer ${YELPapiKey}`,
-        Access-Control-Allow-Headers: 'Authorization, Accept, Content-Type',
         Access-Control-Allow-Origin: '*'
     },
     params: {
