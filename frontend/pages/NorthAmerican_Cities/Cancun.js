@@ -76,6 +76,7 @@ const [location, setLoction] = useState("")
 useEffect(() => {
 axios.get(`https://api.yelp.com/v3/businesses/search`, {
     headers: {
+        accept: 'application/json',
         Authorization: `Bearer ${YELPapiKey}`
     },
     params: {
