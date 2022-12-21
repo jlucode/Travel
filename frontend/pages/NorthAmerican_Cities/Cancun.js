@@ -81,7 +81,7 @@ axios.get(`https://api.yelp.com/v3/businesses/search`, {
         Access-Control-Allow-Headers: 'Authorization, Accept, Content-Type',
         Access-Control-Allow-Origin: '*',
         Access-Control-Allow-Credentials: 'true',
-        Access-Control-Allow-Methods: 'OPTIONS, GET',
+        Access-Control-Allow-Methods: 'OPTIONS, GET'
     },
     params: {
         limit: 6,
